@@ -5,20 +5,21 @@
 // ═══════════════════════════════════════════
 
 export const SITE = {
-  name: "Seamate Maritime Integrated Services Limited",
+  name: "Seamate Group",
   shortName: "Seamate",
   legalName: "Seamate Maritime Integrated Services Limited",
+  groupName: "Seamate Group",
   rcNumber: "RC713064",
   dunsBradstreet: "561378707",
   incorporated: "2007-10-09",
   description:
-    "Lagos-based, ISO 9001:2015 certified maritime services company. Ship management, marine inspection, HSSE, shipping & logistics, and energy trade across West Africa and the EMEA corridor.",
+    "African development platform operating across maritime, energy, logistics, industrial advisory, agro systems, and workforce development. Headquartered in Lagos. ISO 9001:2015 certified. Approved distributor for Dangote Petroleum Refinery.",
   url: "https://seamategroup.com",
   ogImage: "/og-image.png",
   twitter: "@seamategroup",
   locale: "en_NG",
   responseSLA: "24 hours, GMT+1",
-  region: "EMEA",
+  region: "Africa",
   headquarters: "Lagos, Nigeria",
 } as const;
 
@@ -37,9 +38,8 @@ export const CONTACT = {
 
 export const NAV = [
   { label: "About", href: "/about" },
-  { label: "Services", href: "/services" },
-  { label: "Energy & Trade", href: "/energy-trade" },
-  { label: "Sustainability", href: "/sustainability" },
+  { label: "Divisions", href: "/divisions" },
+  { label: "Partnerships", href: "/partnerships" },
   { label: "Contact", href: "/contact" },
 ] as const;
 

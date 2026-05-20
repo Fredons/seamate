@@ -17,19 +17,20 @@ export function Hero() {
             <div className="reveal mb-6">
               <span className="inline-flex items-center gap-2 text-green text-[11px] uppercase tracking-[0.25em] font-medium">
                 <span className="w-1.5 h-1.5 rounded-full bg-green animate-pulse" />
-                Maritime · Energy · Sustainability
+                Maritime · Energy · Logistics · Advisory · Agro · Academy
               </span>
             </div>
 
             <h1 className="reveal font-display text-ink text-[clamp(2.8rem,5.5vw,5rem)] leading-[0.95] tracking-tight">
               Built in Lagos.{" "}
-              <em className="text-green-muted">Trusted across EMEA.</em>
+              <em className="text-green-muted">Trusted across Africa.</em>
             </h1>
 
             <p className="reveal text-text-secondary text-lg md:text-xl leading-relaxed max-w-[540px] mt-8">
-              Eighteen years of ISO 9001:2015 maritime services, energy logistics,
-              and sustainability — for the operators NLNG, Dangote Refinery, and
-              global shipowners already rely on.
+              An African development platform. Eighteen years of ISO 9001:2015
+              operations across maritime, energy, logistics, and workforce
+              systems &mdash; for the operators NLNG, Dangote Refinery, and the
+              institutions building Africa&rsquo;s next two decades.
             </p>
 
             <div className="reveal flex flex-col sm:flex-row gap-4 mt-10">

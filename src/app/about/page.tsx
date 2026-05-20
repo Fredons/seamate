@@ -1,22 +1,21 @@
 // ═══════════════════════════════════════════
-// /about — single dense page: story, values, why local, credentials,
-// awards, and partnership invitation. No /management sub-page (no names yet).
+// /about — single dense page. Story · Vision/Philosophy · Why local
+// · African Development · Credentials · Recognition · Leadership · Partner.
+// Absorbs the brief's separate About / Leadership / African Development pages.
 // ═══════════════════════════════════════════
 
 import type { Metadata } from "next";
 import Image from "next/image";
 import { SiteShell } from "@/components/SiteShell";
 import { PageHero } from "@/components/PageHero";
-import { MailButton } from "@/components/MailButton";
 import { ABOUT } from "@/content/about";
 import { AWARDS, CREDENTIALS } from "@/content/credentials";
-import { NAMED_TECH_PARTNERS } from "@/content/partners";
 import { TrophyIcon } from "@/components/icons";
 
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Seamate Maritime Integrated Services — founded 9 October 2007 in Lagos. ISO 9001:2015 certified, NIMASA licensed, DPR permit holder, D&B verified. Built for African maritime work.",
+    "Seamate Group — an African development platform founded in Lagos, 9 October 2007. ISO 9001:2015 certified. Six divisions: maritime, energy, logistics, industrial advisory, agro systems, and the Seamate Academy.",
   alternates: { canonical: "/about" },
 };
 
@@ -29,7 +28,7 @@ export default function AboutPage() {
         lede={ABOUT.story.lede}
       />
 
-      {/* ─── Hero image strip — native 16:9, exact match. ─── */}
+      {/* ─── Hero image strip ─── */}
       <section className="bg-cream pb-20 md:pb-28">
         <div className="mx-auto max-w-[1400px] px-6 md:px-12">
           <div className="reveal img-reveal rounded-[2rem] bg-ink/[0.03] p-1.5 ring-1 ring-ink/[0.04]">
@@ -47,7 +46,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ─── The thesis ─── */}
+      {/* ─── Thesis + headline stats ─── */}
       <section className="bg-cream pb-20 md:pb-28">
         <div className="mx-auto max-w-[1400px] px-6 md:px-12">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20 items-start">
@@ -60,9 +59,9 @@ export default function AboutPage() {
               <div className="reveal grid grid-cols-2 gap-4">
                 {[
                   { value: "2007", label: "Incorporated" },
-                  { value: "18+", label: "Years operating" },
+                  { value: "6", label: "Divisions" },
                   { value: "ISO", label: "9001:2015 Certified" },
-                  { value: "EMEA", label: "Reach" },
+                  { value: "Africa", label: "Operating reach" },
                 ].map((stat) => (
                   <div key={stat.label} className="rounded-2xl bg-white p-5 border border-ink/[0.06]">
                     <span className="font-mono text-green text-2xl font-medium">{stat.value}</span>
@@ -75,12 +74,44 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ─── Values ─── */}
-      <section className="bg-paper py-20 md:py-28 scroll-mt-24" id="values">
+      {/* ─── Vision / Mission / Philosophy ─── */}
+      <section className="bg-paper py-20 md:py-28 scroll-mt-24" id="vision">
         <div className="mx-auto max-w-[1400px] px-6 md:px-12">
           <div className="reveal mb-12 md:mb-16 max-w-[820px]">
             <span className="inline-block text-[11px] uppercase tracking-[0.25em] text-green font-medium mb-4">
-              01 &mdash; What we hold to
+              01 &mdash; {ABOUT.philosophy.eyebrow}
+            </span>
+            <h2 className="font-display text-ink text-[clamp(2rem,4vw,3.2rem)] leading-[1.05] tracking-tight">
+              The thesis,{" "}
+              <em className="text-green-muted">in three lines.</em>
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 border-t border-ink/[0.08] pt-10">
+            {[
+              { label: "Vision", body: ABOUT.philosophy.vision },
+              { label: "Mission", body: ABOUT.philosophy.mission },
+              { label: "Strategic philosophy", body: ABOUT.philosophy.philosophy },
+            ].map((block, i) => (
+              <div key={block.label} className="reveal" style={{ transitionDelay: `${i * 80}ms` }}>
+                <span className="font-mono text-green/60 text-[11px] uppercase tracking-[0.2em] block mb-4">
+                  {block.label}
+                </span>
+                <p className="font-display text-ink text-2xl md:text-[1.7rem] leading-[1.2] tracking-tight">
+                  {block.body}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Values ─── */}
+      <section className="bg-cream py-20 md:py-28 scroll-mt-24" id="values">
+        <div className="mx-auto max-w-[1400px] px-6 md:px-12">
+          <div className="reveal mb-12 md:mb-16 max-w-[820px]">
+            <span className="inline-block text-[11px] uppercase tracking-[0.25em] text-green font-medium mb-4">
+              02 &mdash; What we hold to
             </span>
             <h2 className="font-display text-ink text-[clamp(2rem,4vw,3.2rem)] leading-[1.05] tracking-tight">
               Three commitments,{" "}
@@ -99,6 +130,45 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* ─── African Development ─── */}
+      <section className="bg-green-pale py-20 md:py-28 scroll-mt-24" id="african-development">
+        <div className="mx-auto max-w-[1400px] px-6 md:px-12">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20">
+            <div className="md:col-span-5">
+              <div className="reveal md:sticky md:top-32">
+                <span className="inline-block text-[11px] uppercase tracking-[0.25em] text-green font-medium mb-4">
+                  03 &mdash; {ABOUT.africanDevelopment.eyebrow}
+                </span>
+                <h2 className="font-display text-ink text-[clamp(2rem,4vw,3.2rem)] leading-[1.05] tracking-tight">
+                  Six integrated systems.{" "}
+                  <em className="text-green-muted">One long-horizon mandate.</em>
+                </h2>
+                <p className="text-text-secondary text-base leading-relaxed mt-6 max-w-[42ch]">
+                  {ABOUT.africanDevelopment.body}
+                </p>
+              </div>
+            </div>
+            <div className="md:col-span-7 space-y-6">
+              {ABOUT.africanDevelopment.themes.map((theme, i) => (
+                <div
+                  key={theme.title}
+                  className="reveal border-t border-ink/[0.08] pt-6"
+                  style={{ transitionDelay: `${i * 60}ms` }}
+                >
+                  <div className="flex items-start gap-4">
+                    <span className="font-mono text-green/50 text-sm mt-1">0{i + 1}</span>
+                    <div>
+                      <h3 className="text-ink font-semibold text-lg tracking-tight">{theme.title}</h3>
+                      <p className="text-text-secondary text-[15px] leading-relaxed mt-2 max-w-[52ch]">{theme.body}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ─── Why local ─── */}
       <section className="bg-cream py-20 md:py-28 scroll-mt-24" id="why-local">
         <div className="mx-auto max-w-[1400px] px-6 md:px-12">
@@ -106,7 +176,7 @@ export default function AboutPage() {
             <div className="md:col-span-5">
               <div className="reveal md:sticky md:top-32">
                 <span className="inline-block text-[11px] uppercase tracking-[0.25em] text-green font-medium mb-4">
-                  02 &mdash; The local advantage
+                  04 &mdash; The local advantage
                 </span>
                 <h2 className="font-display text-ink text-[clamp(2rem,4vw,3.2rem)] leading-[1.05] tracking-tight">
                   We&rsquo;re already there.{" "}
@@ -141,7 +211,7 @@ export default function AboutPage() {
         <div className="mx-auto max-w-[1400px] px-6 md:px-12">
           <div className="reveal mb-12 max-w-[820px]">
             <span className="inline-block text-[11px] uppercase tracking-[0.25em] text-green font-medium mb-4">
-              03 &mdash; Credentials
+              05 &mdash; Credentials
             </span>
             <h2 className="font-display text-ink text-[clamp(2rem,4vw,3.2rem)] leading-[1.05] tracking-tight">
               Audited, licensed,{" "}
@@ -166,12 +236,12 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ─── Awards ─── */}
+      {/* ─── Recognition + WMD photo ─── */}
       <section className="bg-cream py-20 md:py-28 scroll-mt-24" id="recognition">
         <div className="mx-auto max-w-[1400px] px-6 md:px-12">
           <div className="reveal mb-12 md:mb-16 max-w-[700px]">
             <span className="inline-block text-[11px] uppercase tracking-[0.25em] text-green font-medium mb-4">
-              04 &mdash; Recognition
+              06 &mdash; Recognition
             </span>
             <h2 className="font-display text-ink text-[clamp(2rem,4vw,3.2rem)] leading-[1.05] tracking-tight">
               Independently verified.{" "}
@@ -198,11 +268,9 @@ export default function AboutPage() {
             ))}
           </div>
 
-          {/* ─── In the room ─── */}
           <div className="mt-16 md:mt-24 grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-center">
             <div className="md:col-span-7">
               <div className="reveal img-reveal rounded-[2rem] bg-ink/[0.03] p-1.5 ring-1 ring-ink/[0.04]">
-                {/* Native 4:3 group photo — matching container keeps heads visible. */}
                 <div className="rounded-[calc(2rem-0.375rem)] overflow-hidden relative aspect-[4/3]">
                   <Image
                     src="/images/wmd-2020-team.jpg"
@@ -232,64 +300,19 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ─── Partner With Us ─── */}
-      <section className="bg-navy py-20 md:py-28 text-cream scroll-mt-24" id="partner-with-us">
+      {/* ─── Leadership ─── */}
+      <section className="bg-paper py-20 md:py-28 scroll-mt-24" id="leadership">
         <div className="mx-auto max-w-[1400px] px-6 md:px-12">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20 items-start">
-            <div className="md:col-span-6 reveal">
-              <span className="inline-block text-[11px] uppercase tracking-[0.25em] text-green-light font-medium mb-4">
-                05 &mdash; Partner with Seamate
-              </span>
-              <h2 className="font-display text-cream text-[clamp(2rem,4vw,3.2rem)] leading-[1.05] tracking-tight">
-                {ABOUT.partnership.title}
-              </h2>
-              <p className="text-cream/65 text-lg leading-relaxed max-w-[55ch] mt-6">{ABOUT.partnership.body}</p>
-              <div className="mt-10">
-                <MailButton
-                  label="Start a partnership conversation"
-                  subject="Partnership Inquiry"
-                  body={
-                    "Hello Seamate,\n\nWe represent [Company] and we're interested in exploring a partnership focused on:\n\n- Area of collaboration:\n- Markets of interest:\n- Our relevant expertise:\n\nWe'd welcome an introductory call.\n\nThank you,\n"
-                  }
-                />
-              </div>
-            </div>
-
-            <div className="md:col-span-6">
-              <div className="reveal space-y-5">
-                {ABOUT.partnership.requirements.map((req, i) => (
-                  <div key={req} className="flex items-start gap-4 border-t border-cream/10 pt-5">
-                    <span className="font-mono text-green-light text-sm mt-1">0{i + 1}</span>
-                    <p className="text-cream/75 text-base leading-relaxed">{req}</p>
-                  </div>
-                ))}
-              </div>
-
-              {/* Named technical partners */}
-              <div className="reveal mt-10 pt-10 border-t border-cream/10">
-                <span className="font-mono text-cream/40 text-[11px] uppercase tracking-[0.25em] block mb-6">
-                  Active technical partnerships
-                </span>
-                <div className="grid grid-cols-2 gap-4">
-                  {NAMED_TECH_PARTNERS.map((p) => (
-                    <div
-                      key={p.name}
-                      className="rounded-2xl bg-cream/[0.04] border border-cream/10 p-5 flex items-center justify-center h-24"
-                      title={p.full}
-                    >
-                      <Image
-                        src={p.logo}
-                        alt={p.full}
-                        width={160}
-                        height={64}
-                        sizes="160px"
-                        className="max-h-12 w-auto object-contain brightness-200"
-                      />
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+          <div className="reveal max-w-[820px]">
+            <span className="inline-block text-[11px] uppercase tracking-[0.25em] text-green font-medium mb-4">
+              07 &mdash; {ABOUT.leadership.eyebrow}
+            </span>
+            <h2 className="font-display text-ink text-[clamp(2rem,4vw,3.2rem)] leading-[1.05] tracking-tight">
+              {ABOUT.leadership.title}
+            </h2>
+            <p className="text-text-secondary text-lg leading-relaxed mt-8 max-w-[58ch]">
+              {ABOUT.leadership.body}
+            </p>
           </div>
         </div>
       </section>

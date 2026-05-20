@@ -1,6 +1,7 @@
 // ═══════════════════════════════════════════
-// Homepage — lean editorial flow, server component.
-// 7 sections + rich partner wall + footer.
+// Homepage — Seamate Group platform framing.
+// Section order: Hero → TrustStrip → DivisionsOverview (6 divisions)
+//              → AfricanDevelopment → Awards → PartnerWall → Footer.
 // All client logic isolated to the ScrollReveal wrapper.
 // ═══════════════════════════════════════════
 
@@ -11,15 +12,14 @@ import { ScrollReveal } from "@/components/ScrollReveal";
 import { PartnerWall } from "@/components/PartnerWall";
 import { Hero } from "@/components/sections/Hero";
 import { TrustStrip } from "@/components/sections/TrustStrip";
-import { EnergyTradePillar } from "@/components/sections/EnergyTradePillar";
-import { ServicesOverview } from "@/components/sections/ServicesOverview";
-import { SustainabilitySnapshot } from "@/components/sections/SustainabilitySnapshot";
+import { DivisionsOverview } from "@/components/sections/DivisionsOverview";
+import { AfricanDevelopment } from "@/components/sections/AfricanDevelopment";
 import { AwardsSection } from "@/components/sections/AwardsSection";
 
 export const metadata: Metadata = {
-  title: "Seamate Maritime Integrated Services | Lagos · EMEA",
+  title: "Seamate Group — African Maritime, Energy & Industrial Platform",
   description:
-    "ISO 9001:2015 certified maritime services. Ship management, marine inspection, HSSE, shipping & logistics, and Dangote-approved energy trade. Lagos-based, EMEA reach.",
+    "Seamate Group is an African development platform: maritime services, energy distribution, logistics, industrial advisory, agro systems, and workforce development. Lagos-headquartered. ISO 9001:2015 certified. Dangote Refinery approved distributor.",
   alternates: { canonical: "/" },
 };
 
@@ -31,9 +31,8 @@ export default function Home() {
         <main>
           <Hero />
           <TrustStrip />
-          <ServicesOverview />
-          <EnergyTradePillar />
-          <SustainabilitySnapshot />
+          <DivisionsOverview />
+          <AfricanDevelopment />
           <AwardsSection />
           <PartnerWall variant="rich" />
         </main>

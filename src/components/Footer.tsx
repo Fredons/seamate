@@ -14,31 +14,32 @@ import { ArrowUpRight } from "./icons";
 
 const FOOTER_COLUMNS = [
   {
-    label: "Services",
+    label: "Divisions",
     links: [
-      { label: "Ship Management", href: "/services#ship-management" },
-      { label: "Marine Inspection", href: "/services#marine-inspection" },
-      { label: "HSSE & Loss Prevention", href: "/services#hsse" },
-      { label: "Shipping & Logistics", href: "/services#shipping-logistics" },
-    ],
-  },
-  {
-    label: "Sustainability",
-    links: [
-      { label: "Decarbonisation", href: "/sustainability#decarbonisation" },
-      { label: "Blue Economy", href: "/sustainability#blue-economy" },
-      { label: "Cadetship · SASI", href: "/sustainability#cadetship" },
-      { label: "STEM Hub", href: "/sustainability#stem-hub" },
+      { label: "Seamate Maritime", href: "/divisions#maritime" },
+      { label: "Seamate Energy", href: "/divisions#energy" },
+      { label: "Seamate Logistics", href: "/divisions#logistics" },
+      { label: "Industrial Advisory", href: "/divisions#industrial-advisory" },
+      { label: "Agro Systems", href: "/divisions#agro-systems" },
+      { label: "Seamate Academy", href: "/divisions#academy" },
     ],
   },
   {
     label: "Company",
     links: [
       { label: "About", href: "/about" },
-      { label: "Energy & Trade", href: "/energy-trade" },
+      { label: "Vision & Philosophy", href: "/about#vision" },
+      { label: "African Development", href: "/about#african-development" },
       { label: "Credentials", href: "/about#credentials" },
-      { label: "Awards", href: "/about#recognition" },
-      { label: "Partner with us", href: "/about#partner-with-us" },
+      { label: "Recognition", href: "/about#recognition" },
+      { label: "Leadership", href: "/about#leadership" },
+    ],
+  },
+  {
+    label: "Engage",
+    links: [
+      { label: "Investors & Partners", href: "/partnerships#partners" },
+      { label: "Careers & Workforce", href: "/partnerships#careers" },
       { label: "Contact", href: "/contact" },
     ],
   },
