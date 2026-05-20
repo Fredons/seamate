@@ -25,17 +25,56 @@ export const ABOUT = {
   },
 
   africanDevelopment: {
-    eyebrow: "African Development",
+    eyebrow: "Sustainability & African Development",
     title: "Six integrated systems.\nOne long-horizon mandate.",
     body:
-      "Africa's economic transformation requires more than individual companies — it requires integrated systems that move goods, fuel industry, train people, and connect markets. Seamate Group works at the intersections: where maritime meets energy, where logistics meets trade policy, where workforce supply meets industrial demand. The work supports the AfCFTA-era reordering of African trade and the Trans-African Coastal Highway corridor that runs through our Lagos base.",
+      "Africa's economic transformation requires more than individual companies — it requires integrated systems that move goods, fuel industry, train people, and connect markets sustainably. Seamate Group works at the intersections: where maritime meets energy, where logistics meets trade policy, where workforce supply meets industrial demand. The work supports the AfCFTA-era reordering of African trade and the Trans-African Coastal Highway corridor that runs through our Lagos base.",
     themes: [
-      { title: "Industrialisation", body: "Industrial capacity building through advisory, operational support, and trade-corridor logistics." },
-      { title: "Maritime development", body: "Eighteen years of operational maritime depth, extended through cadetship and decarbonisation initiatives." },
-      { title: "Logistics transformation", body: "Coastal trade systems and freight networks that reduce Africa's reliance on road-only freight." },
-      { title: "Energy accessibility", body: "Refinery-linked distribution, marine fuel systems, and regional petroleum movement." },
-      { title: "Workforce development", body: "The SASI cadetship, STEM Hub, and graduate trainee programs feeding skilled labour into African operations." },
+      { title: "Maritime decarbonisation", body: "Hybrid propulsion, shore power, and refinery-adjacent biofuels — a 2030 path calibrated for African capital cost structures and infrastructure realities." },
+      { title: "Blue economy stewardship", body: "Coastal stewardship, pollution prevention, and economic-inclusion programmes across the West African seaboard, aligned to UN SDG 14." },
+      { title: "Industrialisation", body: "Industrial capacity building through advisory, operational support, and trade-corridor logistics across the AfCFTA region." },
+      { title: "Logistics transformation", body: "Coastal trade systems and multimodal freight networks that reduce Africa's reliance on road-only freight." },
+      { title: "Workforce development", body: "The SASI cadetship, STEM Hub, and graduate trainee programmes feeding skilled labour into African operations." },
       { title: "Trade integration", body: "AfCFTA-era market entry, trade-corridor strategy, and regulatory navigation across NIMASA, DPR, customs." },
+    ],
+  },
+
+  insights: {
+    eyebrow: "Insights",
+    title: "Three positions on Africa's next decade.",
+    lede:
+      "Where we put the work, and why. Editorial perspectives from the Seamate Group team on the structural shifts shaping African maritime, energy, and workforce systems.",
+    essays: [
+      {
+        slug: "coastal-logistics-infrastructure-bet",
+        eyebrow: "01 · Infrastructure",
+        title: "Why African coastal logistics is the next infrastructure bet.",
+        body: [
+          "Roughly 90% of African imports and exports move by sea, yet most inland freight runs on roads that lose 30–40% of cargo value to friction, fuel cost, and delay. Coastal logistics — the maritime equivalent of an interstate highway — remains structurally underused along the West African seaboard.",
+          "Three factors are converging. The Trans-West African Coastal Highway is finally being treated as connective infrastructure rather than a passive trade artery. The African Continental Free Trade Area is rewriting tariff regimes that previously made cross-border maritime movement uneconomic. And African ports — Lagos, Lekki, Cotonou, Tema, Abidjan, Dakar — are completing modernisation cycles that make multi-port routing viable.",
+          "Seamate Group operates this corridor today. The infrastructure thesis is straightforward: the next decade of African logistics belongs to operators who connect ports rather than truck around them.",
+        ],
+      },
+      {
+        slug: "decarbonisation-african-shipping",
+        eyebrow: "02 · Decarbonisation",
+        title: "Decarbonisation paths for African shipping.",
+        body: [
+          "Maritime decarbonisation strategies designed in Europe rarely transplant cleanly into African operations. Capital cost structures differ, refuelling infrastructure differs, and the operational baseline — vessel age, route patterns, regulatory enforcement — differs. A faithful copy of the IMO target trajectory will fail in most African contexts.",
+          "What works instead is a tiered approach. Near-term: hybrid propulsion on coastal vessels, shore power at modernised ports, and operational efficiency gains that pay for themselves inside 36 months. Medium-term: bunkering networks for biofuels at refinery-adjacent ports — exactly where the Dangote–Lekki corridor sits. Long-term: clean-energy vessels routed onto coastal trades where range constraints are less binding than on transoceanic shipping.",
+          "The 2030 IMO checkpoint isn't a date Africa needs to fear. It's a date Africa can use, if the path is locally calibrated.",
+        ],
+      },
+      {
+        slug: "workforce-competitive-advantage",
+        eyebrow: "03 · Workforce",
+        title: "Workforce as competitive advantage.",
+        body: [
+          "The International Maritime Organization projects a global shortage of 165,000 officers by 2035. Existing supply chains for trained mariners — Filipino, Eastern European, Russian — are tightening for geopolitical and demographic reasons. Africa has the demographic surplus, the maritime coastline, and the youth-employment imperative to fill that gap.",
+          "The bottleneck is structured training. STCW-compliant deck and engineer officer programmes require seatime placements with operating vessels, not just classroom hours — which means partnerships with shipping operators, not just academies. The Seamate Africa Seatime Initiative is built on that structural insight: 500 cadets in year one, 10,000 over a decade, paired with vessel operators across tanker, dry-cargo, and clean-energy segments.",
+          "Workforce isn't a CSR line item. It is the lever that determines whether African operators run African ships in twenty years' time.",
+        ],
+      },
     ],
   },
 

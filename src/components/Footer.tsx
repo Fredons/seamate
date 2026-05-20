@@ -29,9 +29,10 @@ const FOOTER_COLUMNS = [
     links: [
       { label: "About", href: "/about" },
       { label: "Vision & Philosophy", href: "/about#vision" },
-      { label: "African Development", href: "/about#african-development" },
+      { label: "Sustainability", href: "/about#sustainability" },
       { label: "Credentials", href: "/about#credentials" },
-      { label: "Recognition", href: "/about#recognition" },
+      { label: "Awards", href: "/about#awards" },
+      { label: "Insights", href: "/about#insights" },
       { label: "Leadership", href: "/about#leadership" },
     ],
   },

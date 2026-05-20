@@ -30,7 +30,7 @@ export function AfricanDevelopment() {
                 works at the intersections.
               </p>
               <Link
-                href="/about#african-development"
+                href="/about#sustainability"
                 className="group inline-flex items-center gap-2 mt-8 text-ink font-semibold text-[15px] border-b border-ink/20 pb-1 hover:border-green hover:text-green transition-all duration-500"
               >
                 Read the thesis

@@ -19,6 +19,16 @@ export const metadata: Metadata = {
   alternates: { canonical: "/about" },
 };
 
+// Five UN SDGs that map directly to Seamate Group's stated pillars.
+// Rendered as a visual proof strip inside the Sustainability section.
+const SDGS = [
+  { num: "01", file: "/images/sdg/sdg-01.png", title: "No Poverty", caption: "Blue-economy livelihoods" },
+  { num: "04", file: "/images/sdg/sdg-04.png", title: "Quality Education", caption: "Cadetship · STEM Hub" },
+  { num: "07", file: "/images/sdg/sdg-07.png", title: "Clean Energy", caption: "Maritime decarbonisation" },
+  { num: "14", file: "/images/sdg/sdg-14.png", title: "Life Below Water", caption: "Coastal stewardship" },
+  { num: "17", file: "/images/sdg/sdg-17.png", title: "Partnerships", caption: "Industry & institutions" },
+];
+
 export default function AboutPage() {
   return (
     <SiteShell>
@@ -130,8 +140,10 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ─── African Development ─── */}
-      <section className="bg-green-pale py-20 md:py-28 scroll-mt-24" id="african-development">
+      {/* ─── Sustainability & African Development ─── */}
+      <section className="bg-green-pale py-20 md:py-28 scroll-mt-24" id="sustainability">
+        {/* Alias anchor so legacy /about#african-development links still resolve here */}
+        <span id="african-development" aria-hidden="true" />
         <div className="mx-auto max-w-[1400px] px-6 md:px-12">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20">
             <div className="md:col-span-5">
@@ -162,6 +174,45 @@ export default function AboutPage() {
                       <p className="text-text-secondary text-[15px] leading-relaxed mt-2 max-w-[52ch]">{theme.body}</p>
                     </div>
                   </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* ─── UN SDG strip — visual sustainability proof ─── */}
+          <div className="mt-20 md:mt-28 pt-16 md:pt-20 border-t border-ink/[0.08]">
+            <div className="reveal max-w-[820px] mb-12">
+              <span className="font-mono text-green text-[11px] uppercase tracking-[0.25em] block mb-4">
+                Aligned to
+              </span>
+              <h3 className="font-display text-ink text-[clamp(1.6rem,3vw,2.4rem)] leading-[1.1] tracking-tight">
+                Five UN Sustainable Development Goals.{" "}
+                <em className="text-green-muted">One operational mandate.</em>
+              </h3>
+            </div>
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6 md:gap-8">
+              {SDGS.map((sdg, i) => (
+                <div
+                  key={sdg.num}
+                  className="reveal flex flex-col items-start"
+                  style={{ transitionDelay: `${i * 60}ms` }}
+                >
+                  <div className="w-full aspect-square rounded-2xl overflow-hidden border border-ink/[0.06] hover-lift">
+                    <Image
+                      src={sdg.file}
+                      alt={`UN Sustainable Development Goal ${sdg.num} — ${sdg.title}`}
+                      width={512}
+                      height={512}
+                      sizes="(min-width: 1024px) 240px, (min-width: 640px) 30vw, 45vw"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <span className="font-mono text-green/50 text-[10px] mt-4">SDG {sdg.num}</span>
+                  <h4 className="font-display text-ink text-base md:text-lg leading-tight tracking-tight mt-1">
+                    {sdg.title}
+                  </h4>
+                  <p className="text-text-secondary text-[12px] leading-relaxed mt-2">{sdg.caption}</p>
                 </div>
               ))}
             </div>
@@ -236,12 +287,14 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ─── Recognition + WMD photo ─── */}
-      <section className="bg-cream py-20 md:py-28 scroll-mt-24" id="recognition">
+      {/* ─── Awards & Recognition + WMD photo ─── */}
+      <section className="bg-cream py-20 md:py-28 scroll-mt-24" id="awards">
+        {/* Alias anchor so legacy /about#recognition links still resolve here */}
+        <span id="recognition" aria-hidden="true" />
         <div className="mx-auto max-w-[1400px] px-6 md:px-12">
           <div className="reveal mb-12 md:mb-16 max-w-[700px]">
             <span className="inline-block text-[11px] uppercase tracking-[0.25em] text-green font-medium mb-4">
-              06 &mdash; Recognition
+              06 &mdash; Awards &amp; Recognition
             </span>
             <h2 className="font-display text-ink text-[clamp(2rem,4vw,3.2rem)] leading-[1.05] tracking-tight">
               Independently verified.{" "}
@@ -300,8 +353,52 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* ─── Insights ─── */}
+      <section className="bg-paper py-20 md:py-28 scroll-mt-24" id="insights">
+        <div className="mx-auto max-w-[1400px] px-6 md:px-12">
+          <div className="reveal max-w-[820px] mb-12 md:mb-16">
+            <span className="inline-block text-[11px] uppercase tracking-[0.25em] text-green font-medium mb-4">
+              07 &mdash; {ABOUT.insights.eyebrow}
+            </span>
+            <h2 className="font-display text-ink text-[clamp(2rem,4vw,3.2rem)] leading-[1.05] tracking-tight">
+              {ABOUT.insights.title}
+            </h2>
+            <p className="text-text-secondary text-base leading-relaxed mt-6 max-w-[55ch]">
+              {ABOUT.insights.lede}
+            </p>
+          </div>
+
+          <div className="border-t border-ink/[0.08]">
+            {ABOUT.insights.essays.map((essay, i) => (
+              <article
+                key={essay.slug}
+                id={`insight-${essay.slug}`}
+                className="reveal scroll-mt-24 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 border-b border-ink/[0.08] py-12 md:py-16"
+                style={{ transitionDelay: `${i * 80}ms` }}
+              >
+                <header className="md:col-span-4">
+                  <span className="font-mono text-green/60 text-[11px] uppercase tracking-[0.25em] block mb-4">
+                    {essay.eyebrow}
+                  </span>
+                  <h3 className="font-display text-ink text-2xl md:text-3xl leading-[1.1] tracking-tight">
+                    {essay.title}
+                  </h3>
+                </header>
+                <div className="md:col-span-8 space-y-5">
+                  {essay.body.map((paragraph, p) => (
+                    <p key={p} className="text-text-secondary text-[15px] md:text-base leading-relaxed max-w-[64ch]">
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ─── Leadership ─── */}
-      <section className="bg-paper py-20 md:py-28 scroll-mt-24" id="leadership">
+      <section className="bg-cream py-20 md:py-28 scroll-mt-24" id="leadership">
         <div className="mx-auto max-w-[1400px] px-6 md:px-12">
           <div className="reveal max-w-[820px]">
             <span className="inline-block text-[11px] uppercase tracking-[0.25em] text-green font-medium mb-4">
