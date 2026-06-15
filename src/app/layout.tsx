@@ -69,13 +69,13 @@ export const metadata: Metadata = {
     siteName: SITE.shortName,
     title: SITE.name,
     description: SITE.description,
-    images: [{ url: SITE.ogImage, width: 1200, height: 630, alt: SITE.name }],
+    // og:image is provided by app/opengraph-image.tsx (generated at build).
   },
   twitter: {
     card: "summary_large_image",
     title: SITE.name,
     description: SITE.description,
-    images: [SITE.ogImage],
+    // twitter:image is provided by app/twitter-image.tsx.
   },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large" } },
   category: "Maritime Services",
