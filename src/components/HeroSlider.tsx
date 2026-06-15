@@ -78,9 +78,10 @@ export function HeroSlider() {
       <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(247,244,236,1)_0%,rgba(247,244,236,0.94)_32%,rgba(247,244,236,0.4)_60%,rgba(247,244,236,0)_85%)]" />
       <div className="absolute inset-0 bg-gradient-to-t from-cream/55 via-transparent to-transparent" />
 
-      {/* Content — pt/pb keep it clear of the floating nav and the slide controls
-          on shorter viewports while staying vertically centred on tall screens. */}
-      <div className="relative h-full mx-auto max-w-[1400px] px-6 md:px-12 flex flex-col justify-center pt-28 pb-32 md:pt-24 md:pb-28">
+      {/* Content — top-aligned with a clamped top offset that always clears the
+          floating nav (min 120px) and scales down from centre on tall screens.
+          This prevents the eyebrow from tucking under the nav on short viewports. */}
+      <div className="relative h-full mx-auto max-w-[1400px] px-6 md:px-12 flex flex-col justify-start pt-[clamp(122px,21vh,250px)] pb-28">
         <div className="max-w-[760px]">
           <span
             className="hero-rise inline-flex items-center gap-2.5 text-ink/65 text-[11px] md:text-[12px] uppercase tracking-[0.28em] font-medium"

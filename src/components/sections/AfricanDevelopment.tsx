@@ -1,9 +1,7 @@
 // ═══════════════════════════════════════════
-// AfricanDevelopment — homepage section replacing the previous SustainabilitySnapshot.
-// Six development themes from the Seamate Group thesis, presented as an
-// editorial pair (sticky title + thematic list) and a CTA to /about.
-// Sustainability themes (decarbonisation, blue economy) survive here as
-// part of the broader African development story rather than a standalone page.
+// AfricanDevelopment — homepage section, the deep-teal anchor of the page.
+// A dark band breaks the light rhythm and gives the six development themes
+// editorial weight. Brass numerals, cream text, green-light accents.
 // ═══════════════════════════════════════════
 
 import Link from "next/link";
@@ -12,26 +10,33 @@ import { ABOUT } from "@/content/about";
 
 export function AfricanDevelopment() {
   return (
-    <section className="bg-green-pale py-24 md:py-32" aria-labelledby="african-development-heading">
-      <div className="mx-auto max-w-[1400px] px-6 md:px-12">
+    <section className="relative bg-navy py-24 md:py-36 overflow-hidden" aria-labelledby="african-development-heading">
+      {/* Subtle brass top hairline + soft green glow for depth */}
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brass/50 to-transparent" />
+      <div className="pointer-events-none absolute -top-32 -right-24 w-[480px] h-[480px] rounded-full bg-green/10 blur-[120px]" />
+
+      <div className="relative mx-auto max-w-[1400px] px-6 md:px-12">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20 items-start">
           <div className="md:col-span-5">
             <div className="reveal md:sticky md:top-32">
-              <span className="inline-block text-[11px] uppercase tracking-[0.25em] text-green font-medium mb-4">
-                02 &mdash; African Development
-              </span>
-              <h2 id="african-development-heading" className="font-display text-ink text-[clamp(2rem,4vw,3.2rem)] leading-[1.05] tracking-tight">
+              <div className="flex items-center gap-3 mb-5">
+                <span className="w-8 h-px bg-brass" />
+                <span className="font-mono text-brass-light text-[11px] uppercase tracking-[0.28em]">
+                  02 &middot; African Development
+                </span>
+              </div>
+              <h2 id="african-development-heading" className="font-display text-cream text-[clamp(2.2rem,4.2vw,3.4rem)] leading-[1.04] tracking-tight">
                 Six integrated systems.{" "}
-                <em className="text-green-muted">One long-horizon mandate.</em>
+                <em className="italic text-green-light">One long-horizon mandate.</em>
               </h2>
-              <p className="text-text-secondary text-base leading-relaxed mt-6 max-w-[42ch]">
+              <p className="text-cream/65 text-base leading-relaxed mt-6 max-w-[42ch]">
                 Africa&rsquo;s economic transformation requires more than individual
                 companies &mdash; it requires integrated systems. Seamate Group
                 works at the intersections.
               </p>
               <Link
                 href="/about#sustainability"
-                className="group inline-flex items-center gap-2 mt-8 text-ink font-semibold text-[15px] border-b border-ink/20 pb-1 hover:border-green hover:text-green transition-all duration-500"
+                className="group inline-flex items-center gap-2 mt-8 text-cream font-semibold text-[15px] border-b border-cream/25 pb-1 hover:border-green-light hover:text-green-light transition-all duration-500"
               >
                 Read the thesis
                 <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-[1px] transition-all duration-500" />
@@ -39,24 +44,20 @@ export function AfricanDevelopment() {
             </div>
           </div>
 
-          <div className="md:col-span-7 space-y-6">
-            {ABOUT.africanDevelopment.themes.map((theme, i) => (
-              <div
-                key={theme.title}
-                className="reveal border-t border-ink/[0.08] pt-6"
-                style={{ transitionDelay: `${i * 60}ms` }}
-              >
-                <div className="flex items-start gap-4">
-                  <span className="font-mono text-green/50 text-sm mt-1">0{i + 1}</span>
-                  <div>
-                    <h3 className="text-ink font-semibold text-lg tracking-tight">{theme.title}</h3>
-                    <p className="text-text-secondary text-[15px] leading-relaxed mt-2 max-w-[52ch]">
-                      {theme.body}
-                    </p>
-                  </div>
+          <div className="md:col-span-7">
+            <div className="grid sm:grid-cols-2 gap-x-10 gap-y-9">
+              {ABOUT.africanDevelopment.themes.map((theme, i) => (
+                <div
+                  key={theme.title}
+                  className="reveal border-t border-cream/15 pt-5"
+                  style={{ transitionDelay: `${i * 60}ms` }}
+                >
+                  <span className="font-mono text-brass-light/80 text-sm">0{i + 1}</span>
+                  <h3 className="text-cream font-semibold text-lg tracking-tight mt-3">{theme.title}</h3>
+                  <p className="text-cream/55 text-[14px] leading-relaxed mt-2">{theme.body}</p>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>

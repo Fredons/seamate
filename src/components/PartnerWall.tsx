@@ -18,36 +18,43 @@ type Variant = "rich" | "compressed";
 export function PartnerWall({ variant = "compressed" }: { variant?: Variant }) {
   return (
     <section aria-labelledby="partners-heading" className="relative bg-cream py-20 md:py-28 overflow-hidden">
-      <div className="mx-auto max-w-[1400px] px-6 md:px-12">
-        <div className="flex items-baseline justify-between gap-6 mb-12 md:mb-16">
-          <div className="max-w-[640px]">
-            <span className="block text-[11px] uppercase tracking-[0.25em] text-green font-medium mb-3">
-              Recognized &amp; Trusted
-            </span>
-            <h2 id="partners-heading" className="font-display text-ink text-[clamp(1.6rem,3vw,2.4rem)] leading-[1.1] tracking-tight">
-              {variant === "rich" ? (
-                <>
-                  Operators, regulators, and standards bodies{" "}
-                  <em className="text-green-muted">across Africa and EMEA.</em>
-                </>
-              ) : (
-                <>
-                  The names <em className="text-green-muted">our buyers already know.</em>
-                </>
-              )}
-            </h2>
-          </div>
-          <span className="hidden md:inline-block font-mono text-ink/40 text-[11px] uppercase tracking-[0.2em] shrink-0">
-            {ALL_PARTNERS.length} partners
+      <div className="mx-auto max-w-[1400px] px-6 md:px-12 mb-14 md:mb-20">
+        <div className="flex items-center gap-3 mb-6">
+          <span className="w-8 h-px bg-brass" />
+          <span className="font-mono text-green text-[11px] uppercase tracking-[0.28em]">
+            Recognized &amp; Trusted
           </span>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-end">
+          <h2 id="partners-heading" className="md:col-span-7 font-display text-ink text-[clamp(2rem,3.6vw,3rem)] leading-[1.06] tracking-tight">
+            {variant === "rich" ? (
+              <>
+                The operators, regulators, and standards bodies{" "}
+                <em className="italic text-green">we answer to.</em>
+              </>
+            ) : (
+              <>
+                The names <em className="italic text-green">our buyers already know.</em>
+              </>
+            )}
+          </h2>
+          <p className="md:col-span-5 text-text-secondary text-[15px] leading-relaxed md:text-right md:pb-2">
+            <span className="font-mono text-ink/45 text-[12px] uppercase tracking-[0.2em]">
+              {ALL_PARTNERS.length} partners
+            </span>
+            <span className="block mt-2">
+              Clients, regulators, and accreditation bodies across Africa and the
+              EMEA corridor.
+            </span>
+          </p>
         </div>
       </div>
 
       {variant === "rich" ? <RichTracks /> : <CompressedTrack />}
 
       {/* Edge fades */}
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-24 md:w-32 bg-gradient-to-r from-cream to-transparent z-10" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-24 md:w-32 bg-gradient-to-l from-cream to-transparent z-10" />
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-20 md:w-32 bg-gradient-to-r from-cream to-transparent z-10" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-20 md:w-32 bg-gradient-to-l from-cream to-transparent z-10" />
     </section>
   );
 }
@@ -87,27 +94,32 @@ function Track({
   return (
     <div>
       {label && (
-        <div className="mx-auto max-w-[1400px] px-6 md:px-12 mb-4">
-          <span className="font-mono text-ink/35 text-[10px] uppercase tracking-[0.25em]">{label}</span>
+        <div className="mx-auto max-w-[1400px] px-6 md:px-12 mb-5">
+          <span className="inline-flex items-center gap-2.5 font-mono text-ink/45 text-[10px] uppercase tracking-[0.25em]">
+            <span className="w-1.5 h-1.5 rounded-full bg-green/50" />
+            {label}
+          </span>
         </div>
       )}
       <div
         className={`marquee-track ${direction === "reverse" ? "marquee-reverse" : ""}`}
         style={{ ["--marquee-duration" as string]: `${speed}s` }}
       >
-        <div className="marquee-inner">
+        <div className="marquee-inner gap-4 md:gap-5 px-2 md:px-2.5">
           {doubled.map((p, i) => (
-            <div key={`${p.name}-${i}`} className="shrink-0 px-8 md:px-10 group" title={p.full}>
-              <div className="h-16 md:h-20 flex items-center justify-center grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]">
-                <Image
-                  src={p.logo}
-                  alt={p.full}
-                  width={200}
-                  height={80}
-                  className="h-12 md:h-16 w-auto object-contain"
-                  sizes="200px"
-                />
-              </div>
+            <div
+              key={`${p.name}-${i}`}
+              className="shrink-0 group rounded-2xl bg-paper border border-ink/[0.06] shadow-[0_1px_0_rgba(20,39,43,0.02)] hover:border-green/30 hover:shadow-[0_8px_24px_rgba(20,39,43,0.06)] transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] flex items-center justify-center h-20 md:h-24 w-[180px] md:w-[220px] px-7"
+              title={p.full}
+            >
+              <Image
+                src={p.logo}
+                alt={p.full}
+                width={200}
+                height={80}
+                className="h-11 md:h-14 w-auto object-contain grayscale opacity-65 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]"
+                sizes="220px"
+              />
             </div>
           ))}
         </div>
