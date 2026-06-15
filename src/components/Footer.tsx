@@ -50,7 +50,11 @@ export function Footer() {
       <div className="h-[3px] w-full bg-green" />
       <div className="mx-auto max-w-[1280px] px-4 md:px-12 grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8 py-20 md:py-24">
         <div className="md:col-span-4">
-          <Image src="/seamate-logo.png" alt="" width={150} height={40} className="h-11 w-auto brightness-0 invert" />
+          {/* Color logo on a white plaque — the mark has solid colour blocks
+              that don't invert to white cleanly. */}
+          <span className="inline-flex bg-white px-4 py-3">
+            <Image src="/seamate-logo.png" alt="Seamate Group" width={150} height={40} className="h-10 w-auto" />
+          </span>
           <p className="font-body text-on-dark/60 text-[15px] leading-relaxed max-w-[34ch] mt-6">
             World-class maritime, energy, and logistics solutions across the
             African continent since 9 October 2007.

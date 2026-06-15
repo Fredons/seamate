@@ -1,8 +1,11 @@
 // ═══════════════════════════════════════════
 // SiteShell — wraps every non-homepage with consistent furniture:
-// Navbar (sticky), scroll-reveal context, the page content,
-// the compressed Partner Wall, and the Footer.
-// Homepage uses the rich PartnerWall and assembles its own shell.
+// Navbar (sticky), scroll-reveal context, page content, Footer.
+//
+// The Partner Wall is intentionally NOT rendered here. To avoid logo-wall
+// fatigue, the full logo set lives in one categorized grid on /about, and
+// the rich showcase marquee lives on the homepage only. Pass
+// `partnerWall="compressed"` to opt a specific page back in if ever needed.
 // ═══════════════════════════════════════════
 
 import type { ReactNode } from "react";
@@ -13,11 +16,11 @@ import { ScrollReveal } from "./ScrollReveal";
 
 export function SiteShell({
   children,
-  partnerWall = "compressed",
-  hidePartnerWall = false,
+  partnerWall,
 }: {
   children: ReactNode;
   partnerWall?: "rich" | "compressed";
+  /** @deprecated kept for backward compatibility; the wall is now off by default */
   hidePartnerWall?: boolean;
 }) {
   return (
@@ -25,7 +28,7 @@ export function SiteShell({
       <Navbar />
       <ScrollReveal className="flex-1">
         <main>{children}</main>
-        {!hidePartnerWall && <PartnerWall variant={partnerWall} />}
+        {partnerWall && <PartnerWall variant={partnerWall} />}
       </ScrollReveal>
       <Footer />
     </div>

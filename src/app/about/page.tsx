@@ -11,6 +11,7 @@ import { PageHero } from "@/components/PageHero";
 import { ABOUT } from "@/content/about";
 import { AWARDS, CREDENTIALS } from "@/content/credentials";
 import { MS } from "@/components/icons";
+import { PartnersGrid } from "@/components/sections/PartnersGrid";
 
 export const metadata: Metadata = {
   title: "About",
@@ -227,6 +228,9 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      {/* ─── Partners & Accreditations (the canonical logo set) ─── */}
+      <PartnersGrid />
 
       {/* ─── Awards & Recognition ─── */}
       <section className="bg-surface py-20 md:py-28 scroll-mt-24" id="awards">

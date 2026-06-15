@@ -24,7 +24,7 @@ const EMAIL_LINES = [
 
 export default function ContactPage() {
   return (
-    <SiteShell hidePartnerWall>
+    <SiteShell>
       <PageHero
         eyebrow="Contact"
         title={"Email, phone, or both.\nWe answer within 24 hours."}
