@@ -51,7 +51,7 @@ export function HeroSlider() {
   });
 
   return (
-    <section className="relative h-[92vh] min-h-[600px] w-full overflow-hidden bg-navy">
+    <section className="relative h-[92vh] min-h-[600px] w-full overflow-hidden bg-cream">
       {/* Slides */}
       {SLIDES.map((slide, i) => (
         <div
@@ -73,32 +73,33 @@ export function HeroSlider() {
         </div>
       ))}
 
-      {/* Scrim — left-weighted + bottom-up so headline stays legible on both images */}
-      <div className="absolute inset-0 bg-gradient-to-r from-navy/85 via-navy/55 to-navy/10" />
-      <div className="absolute inset-0 bg-gradient-to-t from-navy/70 via-transparent to-navy/25" />
+      {/* Light bone wash — fully opaque on the left third for dark-ink text,
+          then clears so the photo reads crisply across the right ~40%. */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(247,244,236,1)_0%,rgba(247,244,236,0.94)_32%,rgba(247,244,236,0.4)_60%,rgba(247,244,236,0)_85%)]" />
+      <div className="absolute inset-0 bg-gradient-to-t from-cream/55 via-transparent to-transparent" />
 
       {/* Content — pt/pb keep it clear of the floating nav and the slide controls
           on shorter viewports while staying vertically centred on tall screens. */}
       <div className="relative h-full mx-auto max-w-[1400px] px-6 md:px-12 flex flex-col justify-center pt-28 pb-32 md:pt-24 md:pb-28">
         <div className="max-w-[760px]">
           <span
-            className="hero-rise inline-flex items-center gap-2.5 text-cream/90 text-[11px] md:text-[12px] uppercase tracking-[0.28em] font-medium"
+            className="hero-rise inline-flex items-center gap-2.5 text-ink/65 text-[11px] md:text-[12px] uppercase tracking-[0.28em] font-medium"
             style={{ animationDelay: "120ms" }}
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-green-light" />
+            <span className="w-5 h-px bg-brass" />
             Seamate Group · African Development Platform · Est. 2007
           </span>
 
           <h1
-            className="hero-rise font-display text-cream text-[clamp(2.9rem,6.5vw,5.6rem)] leading-[0.98] tracking-tight mt-6 [text-shadow:0_2px_40px_rgba(10,25,41,0.5)]"
+            className="hero-rise font-display text-ink text-[clamp(2.9rem,6.5vw,5.6rem)] leading-[0.98] tracking-tight mt-6"
             style={{ animationDelay: "240ms" }}
           >
             Built in Lagos.{" "}
-            <em className="italic text-green-light">Trusted across Africa.</em>
+            <em className="italic text-green">Trusted across Africa.</em>
           </h1>
 
           <p
-            className="hero-rise text-cream/85 text-lg md:text-xl leading-relaxed max-w-[560px] mt-7 [text-shadow:0_1px_20px_rgba(10,25,41,0.5)]"
+            className="hero-rise text-text-secondary text-lg md:text-xl leading-relaxed max-w-[560px] mt-7"
             style={{ animationDelay: "380ms" }}
           >
             Eighteen years of ISO 9001:2015 operations across maritime, energy,
@@ -121,10 +122,10 @@ export function HeroSlider() {
             </a>
             <Link
               href="/divisions"
-              className="group inline-flex w-full sm:w-auto items-center justify-center gap-3 rounded-full border border-cream/30 bg-cream/[0.04] backdrop-blur-sm hover:bg-cream/10 hover:border-cream/50 px-7 py-4 text-cream font-medium text-[15px] tracking-wide transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] active:scale-[0.98]"
+              className="group inline-flex w-full sm:w-auto items-center justify-center gap-3 rounded-full border border-ink/20 bg-paper/40 backdrop-blur-sm hover:bg-paper/70 hover:border-green/50 px-7 py-4 text-ink font-medium text-[15px] tracking-wide transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] active:scale-[0.98]"
             >
               <span>Explore Our Divisions</span>
-              <ArrowRight className="w-4 h-4 text-cream group-hover:translate-x-0.5 transition-transform duration-500" />
+              <ArrowRight className="w-4 h-4 text-green group-hover:translate-x-0.5 transition-transform duration-500" />
             </Link>
           </div>
         </div>
@@ -145,17 +146,17 @@ export function HeroSlider() {
               >
                 <span
                   className={`block h-[3px] rounded-full transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] ${
-                    i === active ? "w-10 bg-cream" : "w-5 bg-cream/40 group-hover:bg-cream/70"
+                    i === active ? "w-10 bg-green" : "w-5 bg-ink/25 group-hover:bg-ink/50"
                   }`}
                 />
               </button>
             ))}
           </div>
 
-          <span className="hidden sm:flex items-center gap-2 text-cream/60 text-[11px] uppercase tracking-[0.25em]">
+          <span className="hidden sm:flex items-center gap-2 text-ink/55 text-[11px] uppercase tracking-[0.25em]">
             Scroll
-            <span className="w-px h-6 bg-cream/30 relative overflow-hidden">
-              <span className="absolute inset-x-0 top-0 h-2 bg-cream/80 animate-[scrollcue_2s_ease-in-out_infinite]" />
+            <span className="w-px h-6 bg-ink/25 relative overflow-hidden">
+              <span className="absolute inset-x-0 top-0 h-2 bg-ink/70 animate-[scrollcue_2s_ease-in-out_infinite]" />
             </span>
           </span>
         </div>

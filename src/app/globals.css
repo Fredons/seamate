@@ -6,34 +6,45 @@
    ═══════════════════════════════════════════ */
 
 :root {
-  /* Core palette derived from the Seamate brand mark */
-  --navy: #0A1929;
-  --navy-light: #0F2138;
-  --navy-mid: #162D4A;
-  --ink: #0B0F14;
+  /* ── Editorial Maritime · warm-bone + deep-teal + maritime-green + brass ──
+     Neutrals tinted warm toward the brand; no pure #000 / #fff. */
 
-  --cream: #F6F4EF;
-  --cream-dark: #EDEBE4;
-  --paper: #FDFCF9;
+  /* Deep teal-navy — dark sections, footer, ink */
+  --navy: #0E2429;
+  --navy-light: #143138;
+  --navy-mid: #1C414B;
+  --ink: #14272B;
 
-  --green: #1D7A4B;
-  --green-light: #27966A;
-  --green-muted: #196841;
-  --green-pale: #E8F5EE;
+  /* Warm bone light bases */
+  --cream: #F7F4EC;
+  --cream-dark: #EEE9DC;
+  --paper: #FCFAF3;
 
+  /* Maritime green — primary accent */
+  --green: #1F7A4E;
+  --green-light: #2A9462;
+  --green-muted: #185C3B;
+  --green-pale: #E7F0E8;
+
+  /* Brass — hairline / detail accent */
+  --brass: #B58A4C;
+  --brass-light: #C9A86A;
+
+  /* Signal red — sparing secondary (brand mark) */
   --red: #B5302A;
   --red-light: #D44A44;
   --red-muted: #9A2822;
 
-  --steel: #64748B;
-  --steel-light: #94A3B8;
+  /* Warm slate neutrals */
+  --steel: #5C6B6E;
+  --steel-light: #8A9699;
 
-  --text-primary: #0B0F14;
-  --text-secondary: #475569;
-  --text-on-dark: #F6F4EF;
-  --text-muted: #94A3B8;
-  --border-subtle: rgba(11, 15, 20, 0.08);
-  --border-on-dark: rgba(246, 244, 239, 0.12);
+  --text-primary: #14272B;
+  --text-secondary: #46585C;
+  --text-on-dark: #F7F4EC;
+  --text-muted: #8A9699;
+  --border-subtle: rgba(20, 39, 43, 0.09);
+  --border-on-dark: rgba(247, 244, 236, 0.14);
 
   --ease-out: cubic-bezier(0.32, 0.72, 0, 1);
 }
@@ -50,6 +61,8 @@
   --color-green-light: var(--green-light);
   --color-green-muted: var(--green-muted);
   --color-green-pale: var(--green-pale);
+  --color-brass: var(--brass);
+  --color-brass-light: var(--brass-light);
   --color-red: var(--red);
   --color-red-light: var(--red-light);
   --color-red-muted: var(--red-muted);
@@ -222,7 +235,7 @@ body {
 
 .brand-divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--green), transparent);
+  background: linear-gradient(90deg, transparent, var(--brass), transparent);
 }
 
 /* ═══════ Reduced motion ═══════

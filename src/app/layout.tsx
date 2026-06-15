@@ -1,19 +1,22 @@
 import type { Metadata, Viewport } from "next";
-import { DM_Sans, Instrument_Serif, JetBrains_Mono } from "next/font/google";
+import { Archivo, Fraunces, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { SITE } from "@/content/site";
 
-const dmSans = DM_Sans({
+// Body — Archivo: an industrial grotesque with a maritime/engineering feel.
+const archivo = Archivo({
   variable: "--font-body",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
-const instrumentSerif = Instrument_Serif({
+// Display — Fraunces: a high-contrast modern serif with real character and
+// an expressive italic. Carries the editorial-premium register.
+const fraunces = Fraunces({
   variable: "--font-display",
   subsets: ["latin"],
-  weight: ["400"],
+  weight: ["400", "500", "600"],
   style: ["normal", "italic"],
   display: "swap",
 });
@@ -154,7 +157,7 @@ const jsonLd = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${dmSans.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable} antialiased`}>
+    <html lang="en" className={`${archivo.variable} ${fraunces.variable} ${jetbrainsMono.variable} antialiased`}>
       <head>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </head>
