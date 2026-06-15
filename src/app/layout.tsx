@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Source_Serif_4, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import { SITE } from "@/content/site";
+import { SITE, getBaseUrl } from "@/content/site";
 
 // Display & UI — Inter: clean, systematic, technical. Headlines and labels.
 const inter = Inter({
@@ -29,7 +29,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(SITE.url),
+  metadataBase: new URL(getBaseUrl()),
   title: {
     default: `${SITE.name} | African Maritime, Energy & Sustainability`,
     template: `%s · ${SITE.shortName}`,

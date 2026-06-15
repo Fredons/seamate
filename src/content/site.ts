@@ -23,6 +23,24 @@ export const SITE = {
   headquarters: "Lagos, Nigeria",
 } as const;
 
+// Resolve the absolute base URL for metadata (og:image, canonical, etc.).
+// Critical for link previews: the og:image URL must point at the domain that
+// actually serves THIS site, not the canonical brand domain if that's still
+// pointing elsewhere (e.g. the legacy site).
+//   1. NEXT_PUBLIC_SITE_URL          — manual override (set this once the
+//                                       custom domain points at this deploy)
+//   2. VERCEL_PROJECT_PRODUCTION_URL — the production domain on Vercel
+//   3. VERCEL_URL                    — the per-deployment preview URL
+//   4. SITE.url                      — local / fallback
+export function getBaseUrl(): string {
+  const env = process.env;
+  if (env.NEXT_PUBLIC_SITE_URL) return env.NEXT_PUBLIC_SITE_URL.replace(/\/$/, "");
+  if (env.VERCEL_ENV === "production" && env.VERCEL_PROJECT_PRODUCTION_URL)
+    return `https://${env.VERCEL_PROJECT_PRODUCTION_URL}`;
+  if (env.VERCEL_URL) return `https://${env.VERCEL_URL}`;
+  return SITE.url;
+}
+
 export const CONTACT = {
   emails: {
     general: "info@seamategroup.com",
