@@ -134,6 +134,32 @@ body {
   animation: shimmer 4s ease-in-out infinite;
 }
 
+/* Hero slideshow — slow Ken Burns zoom on the active slide */
+@keyframes kenburns-zoom {
+  from { transform: scale(1.02); }
+  to { transform: scale(1.12); }
+}
+.hero-kenburns {
+  animation: kenburns-zoom 9s var(--ease-out) forwards;
+}
+
+/* Hero content entrance — fade + rise on first paint */
+@keyframes hero-rise {
+  from { opacity: 0; transform: translateY(22px); filter: blur(4px); }
+  to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+.hero-rise {
+  opacity: 0;
+  animation: hero-rise 1s var(--ease-out) forwards;
+}
+
+/* Hero scroll cue — a short bar travelling down a thin track */
+@keyframes scrollcue {
+  0% { transform: translateY(-8px); opacity: 0; }
+  40% { opacity: 1; }
+  100% { transform: translateY(24px); opacity: 0; }
+}
+
 /* Marquee track: doubled inner row translates -50% over --marquee-duration */
 @keyframes marquee-forward {
   from { transform: translate3d(0, 0, 0); }
@@ -208,12 +234,14 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
   }
-  .reveal {
+  .reveal,
+  .hero-rise {
     opacity: 1 !important;
     transform: none !important;
     filter: none !important;
   }
   .img-reveal img { transform: none !important; }
+  .hero-kenburns { animation: none !important; }
   .marquee-inner {
     animation: none !important;
     transform: none !important;

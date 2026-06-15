@@ -10,7 +10,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { PartnerWall } from "@/components/PartnerWall";
-import { Hero } from "@/components/sections/Hero";
+import { HeroSlider } from "@/components/HeroSlider";
 import { TrustStrip } from "@/components/sections/TrustStrip";
 import { DivisionsOverview } from "@/components/sections/DivisionsOverview";
 import { AfricanDevelopment } from "@/components/sections/AfricanDevelopment";
@@ -29,7 +29,7 @@ export default function Home() {
       <Navbar />
       <ScrollReveal>
         <main>
-          <Hero />
+          <HeroSlider />
           <TrustStrip />
           <DivisionsOverview />
           <AfricanDevelopment />
