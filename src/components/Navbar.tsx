@@ -42,6 +42,8 @@ export function Navbar() {
           scrolled ? "border-steel-line/70 shadow-[0_1px_0_rgba(21,23,28,0.04)]" : "border-transparent"
         }`}
       >
+        {/* Brand keyline — the green thread, tied to the Seamate mark */}
+        <div className="h-[3px] w-full bg-green" />
         <nav
           className={`mx-auto max-w-[1280px] flex items-center justify-between px-4 md:px-12 transition-all duration-300 ${
             scrolled ? "h-16" : "h-20"
@@ -59,7 +61,7 @@ export function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="font-ui text-[13px] font-semibold uppercase tracking-[0.06em] text-steel hover:text-navy transition-colors duration-300"
+                className="link-slide font-ui text-[13px] font-semibold uppercase tracking-[0.06em] text-steel hover:text-navy transition-colors duration-300"
               >
                 {item.label}
               </Link>

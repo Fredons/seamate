@@ -46,6 +46,8 @@ export function Footer() {
 
   return (
     <footer className="bg-navy text-on-dark">
+      {/* Brand keyline — green thread, mirrors the top of the page */}
+      <div className="h-[3px] w-full bg-green" />
       <div className="mx-auto max-w-[1280px] px-4 md:px-12 grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8 py-20 md:py-24">
         <div className="md:col-span-4">
           <Image src="/seamate-logo.png" alt="" width={150} height={40} className="h-11 w-auto brightness-0 invert" />
@@ -65,7 +67,7 @@ export function Footer() {
               <a
                 key={s.icon}
                 href={s.href}
-                className="w-10 h-10 rounded-md border border-on-dark/20 flex items-center justify-center text-on-dark/70 hover:bg-on-dark/10 hover:text-white transition-all duration-300"
+                className="w-10 h-10 rounded-md border border-on-dark/20 flex items-center justify-center text-on-dark/70 hover:bg-green hover:border-green hover:text-white transition-all duration-300"
               >
                 <MS name={s.icon} className="text-[18px]" />
               </a>

@@ -35,8 +35,8 @@ export function Credibility() {
           {/* Story */}
           <div className="text-white reveal">
             <div className="flex items-center gap-3 mb-6">
-              <span className="w-7 h-[2px] bg-orange" />
-              <span className="font-ui text-orange text-[11px] font-bold uppercase tracking-[0.18em]">Our Foundation</span>
+              <span className="w-7 h-[2px] bg-green-light" />
+              <span className="font-ui text-green-light text-[11px] font-bold uppercase tracking-[0.18em]">Our Foundation</span>
             </div>
             <h2 id="credibility-heading" className="font-display text-white text-[clamp(2.2rem,4.2vw,3.4rem)] font-extrabold tracking-[-0.02em] leading-[1.05]">
               Built on <span className="text-orange">Credibility.</span>
@@ -56,13 +56,13 @@ export function Credibility() {
             </div>
 
             <div className="grid grid-cols-2 gap-8 mt-10">
-              <div className="border-t border-on-dark/20 pt-5">
+              <div className="border-t-2 border-orange/70 pt-5">
                 <p className="font-display text-white text-lg font-bold">Lagos Hub</p>
                 <p className="font-body text-on-dark/55 text-[14px] mt-1">Strategic Operations Centre</p>
               </div>
-              <div className="border-t border-on-dark/20 pt-5">
-                <p className="font-display text-white text-lg font-bold">100% Local</p>
-                <p className="font-body text-on-dark/55 text-[14px] mt-1">African-owned, globally credentialed</p>
+              <div className="border-t-2 border-green/70 pt-5">
+                <p className="font-display text-white text-lg font-bold">HSSE · Blue &amp; Green</p>
+                <p className="font-body text-on-dark/55 text-[14px] mt-1">Sustainability at the core</p>
               </div>
             </div>
 

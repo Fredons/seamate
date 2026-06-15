@@ -14,12 +14,14 @@ export function TrustStrip() {
         <div className="flex flex-col lg:flex-row items-center justify-between gap-10">
           <div className="flex flex-col items-center lg:items-start shrink-0">
             <div className="flex items-center gap-2 mb-1.5">
-              <MS name="verified" filled className="text-orange text-[20px]" />
+              <MS name="verified" filled className="text-green text-[20px]" />
               <span id="trust-heading" className="font-ui text-steel text-[11px] font-bold uppercase tracking-[0.18em]">
                 Certified Excellence
               </span>
             </div>
-            <p className="font-display text-navy text-xl font-bold tracking-tight">ISO 9001:2015</p>
+            <p className="font-display text-navy text-xl font-bold tracking-tight">
+              ISO 9001:2015 <span className="text-green">Certified</span>
+            </p>
           </div>
 
           <div className="hidden lg:block w-px h-14 bg-steel-line/70" />

@@ -96,7 +96,7 @@ function Track({
       {label && (
         <div className="mx-auto max-w-[1280px] px-4 md:px-12 mb-5">
           <span className="inline-flex items-center gap-2.5 font-ui text-steel text-[10px] font-bold uppercase tracking-[0.2em]">
-            <span className="w-1.5 h-1.5 bg-orange" />
+            <span className="w-1.5 h-1.5 bg-green" />
             {label}
           </span>
         </div>
