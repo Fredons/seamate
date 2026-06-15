@@ -13,8 +13,9 @@ import { PartnerWall } from "@/components/PartnerWall";
 import { HeroSlider } from "@/components/HeroSlider";
 import { TrustStrip } from "@/components/sections/TrustStrip";
 import { DivisionsOverview } from "@/components/sections/DivisionsOverview";
-import { AfricanDevelopment } from "@/components/sections/AfricanDevelopment";
+import { Credibility } from "@/components/sections/Credibility";
 import { AwardsSection } from "@/components/sections/AwardsSection";
+import { CTABand } from "@/components/sections/CTABand";
 
 export const metadata: Metadata = {
   title: "Seamate Group — African Maritime, Energy & Industrial Platform",
@@ -32,9 +33,10 @@ export default function Home() {
           <HeroSlider />
           <TrustStrip />
           <DivisionsOverview />
-          <AfricanDevelopment />
+          <Credibility />
           <AwardsSection />
           <PartnerWall variant="rich" />
+          <CTABand />
         </main>
       </ScrollReveal>
       <Footer />

@@ -1,40 +1,43 @@
 // ═══════════════════════════════════════════
-// AwardsSection — three real awards, named, dated, verifiable.
+// AwardsSection — Institutional Excellence cards (Stitch).
+// White cards, steel border, navy 3px top accent, Material Symbol trophy.
 // ═══════════════════════════════════════════
 
-import { TrophyIcon } from "../icons";
+import { MS } from "../icons";
 import { AWARDS } from "@/content/credentials";
 
 export function AwardsSection() {
   return (
-    <section className="bg-paper py-24 md:py-32" aria-labelledby="awards-heading">
-      <div className="mx-auto max-w-[1400px] px-6 md:px-12">
-        <div className="reveal mb-16 md:mb-20 max-w-[700px]">
-          <span className="inline-block text-[11px] uppercase tracking-[0.25em] text-green font-medium mb-4">
-            04 &mdash; Recognition
-          </span>
-          <h2 id="awards-heading" className="font-display text-ink text-[clamp(2rem,4vw,3.2rem)] leading-[1.05] tracking-tight">
-            Independently verified.{" "}
-            <em className="text-green-muted">Three times over.</em>
+    <section className="bg-surface-2 py-20 md:py-28" aria-labelledby="awards-heading">
+      <div className="mx-auto max-w-[1280px] px-4 md:px-12">
+        <div className="text-center mb-14 md:mb-16">
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <span className="w-7 h-[2px] bg-orange" />
+            <span className="font-ui text-steel text-[11px] font-bold uppercase tracking-[0.18em]">Recognition</span>
+            <span className="w-7 h-[2px] bg-orange" />
+          </div>
+          <h2 id="awards-heading" className="font-display text-navy text-[clamp(2rem,4vw,3.2rem)] font-extrabold tracking-[-0.02em]">
+            Independently Verified
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {AWARDS.map((award, i) => (
-            <div key={award.year} className="reveal" style={{ transitionDelay: `${i * 100}ms` }}>
-              <div className="rounded-[2rem] bg-ink/[0.02] p-1.5 ring-1 ring-ink/[0.04] hover-lift h-full">
-                <div className="rounded-[calc(2rem-0.375rem)] bg-white p-8 md:p-10 h-full flex flex-col shadow-[0_4px_24px_rgba(0,0,0,0.04)]">
-                  <div className="flex items-center gap-3 mb-6">
-                    <span className="w-10 h-10 rounded-full bg-green/10 flex items-center justify-center">
-                      <TrophyIcon className="w-5 h-5 text-green" />
-                    </span>
-                    <span className="font-mono text-green text-lg font-medium">{award.year}</span>
-                  </div>
-                  <h3 className="font-display text-ink text-2xl leading-tight tracking-tight">{award.name}</h3>
-                  <p className="text-ink/50 text-[13px] font-medium uppercase tracking-wider mt-3">{award.body}</p>
-                  <p className="text-text-secondary text-[15px] leading-relaxed mt-6 flex-1">{award.note}</p>
-                </div>
+            <div
+              key={award.year}
+              className="reveal relative bg-white border border-steel-line/60 p-8 md:p-10 transition-all duration-300 hover:shadow-[0_12px_40px_rgba(21,23,28,0.07)]"
+              style={{ transitionDelay: `${i * 80}ms` }}
+            >
+              <span className="absolute top-0 left-0 h-[3px] w-full bg-navy" />
+              <div className="flex items-center gap-3 mb-6">
+                <span className="w-11 h-11 rounded-md bg-orange/10 flex items-center justify-center">
+                  <MS name="emoji_events" filled className="text-orange text-[22px]" />
+                </span>
+                <span className="font-mono text-orange text-base font-medium">{award.date ?? award.year}</span>
               </div>
+              <h3 className="font-display text-navy text-xl font-bold tracking-tight leading-snug">{award.name}</h3>
+              <p className="font-ui text-steel text-[12px] font-semibold uppercase tracking-[0.06em] mt-3">{award.body}</p>
+              <p className="font-body text-text-secondary text-[15px] leading-relaxed mt-5">{award.note}</p>
             </div>
           ))}
         </div>

@@ -1,69 +1,59 @@
 // ═══════════════════════════════════════════
-// DivisionsOverview — homepage editorial list of all six Seamate Group divisions.
-// Same row-per-item rhythm as the previous ServicesOverview but extended to 6.
-// Each row links to its anchored section on /divisions.
+// DivisionsOverview — Strategic Divisions card grid (Stitch).
+// Centered heading + orange rule, six structural icon cards (white, steel
+// border, navy top-border on hover, Material Symbol, corner detail).
 // ═══════════════════════════════════════════
 
 import Link from "next/link";
-import { ArrowUpRight } from "../icons";
+import { MS } from "../icons";
 import { DIVISIONS } from "@/content/divisions";
+
+const ICONS: Record<string, string> = {
+  maritime: "anchor",
+  energy: "oil_barrel",
+  logistics: "conveyor_belt",
+  "industrial-advisory": "foundation",
+  "agro-systems": "agriculture",
+  academy: "school",
+};
 
 export function DivisionsOverview() {
   return (
-    <section className="bg-cream py-24 md:py-32" aria-labelledby="divisions-heading">
-      <div className="mx-auto max-w-[1400px] px-6 md:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20 mb-12 md:mb-16">
-          <div className="md:col-span-5">
-            <div className="reveal">
-              <span className="inline-block text-[11px] uppercase tracking-[0.25em] text-green font-medium mb-4">
-                01 &mdash; Divisions
-              </span>
-              <h2 id="divisions-heading" className="font-display text-ink text-[clamp(2rem,4vw,3.2rem)] leading-[1.05] tracking-tight">
-                Six divisions.{" "}
-                <em className="text-green-muted">One institutional team.</em>
-              </h2>
-            </div>
+    <section className="bg-surface py-20 md:py-28" aria-labelledby="divisions-heading">
+      <div className="mx-auto max-w-[1280px] px-4 md:px-12">
+        <div className="text-center mb-14 md:mb-16">
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <span className="w-7 h-[2px] bg-orange" />
+            <span className="font-ui text-steel text-[11px] font-bold uppercase tracking-[0.18em]">What we operate</span>
+            <span className="w-7 h-[2px] bg-orange" />
           </div>
-          <div className="md:col-span-7">
-            <p className="reveal text-text-secondary text-lg leading-relaxed max-w-[55ch] mt-2">
-              Maritime, energy, logistics, industrial advisory, agro systems, and a
-              workforce academy &mdash; managed from one operations centre in Lagos,
-              with reach across the continent.
-            </p>
-            <Link
-              href="/divisions"
-              className="reveal inline-flex items-center gap-2 mt-8 text-ink font-semibold text-[15px] border-b border-ink/20 pb-1 hover:border-green hover:text-green transition-all duration-500 group"
-            >
-              See all divisions
-              <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-[1px] transition-all duration-500" />
-            </Link>
-          </div>
+          <h2 id="divisions-heading" className="font-display text-navy text-[clamp(2rem,4vw,3.2rem)] font-extrabold tracking-[-0.02em]">
+            Six Strategic Divisions
+          </h2>
+          <p className="font-body text-text-secondary text-lg leading-relaxed max-w-[60ch] mx-auto mt-5">
+            Maritime, energy, logistics, industrial advisory, agro systems, and a
+            workforce academy — managed from one operations centre in Lagos.
+          </p>
         </div>
 
-        <div className="border-t border-ink/[0.08]">
-          {DIVISIONS.map((division, i) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+          {DIVISIONS.map((d) => (
             <Link
-              key={division.slug}
-              href={`/divisions#${division.slug}`}
-              className="reveal group block border-b border-ink/[0.08] py-7 md:py-9 transition-colors duration-500 hover:bg-paper"
-              style={{ transitionDelay: `${i * 50}ms` }}
+              key={d.slug}
+              href={`/divisions#${d.slug}`}
+              className="reveal group relative bg-white border border-steel-line/60 p-8 overflow-hidden transition-all duration-300 hover:border-navy hover:shadow-[0_12px_40px_rgba(21,23,28,0.08)]"
             >
-              <div className="grid grid-cols-12 gap-4 sm:gap-6 items-center">
-                <span className="col-span-2 md:col-span-1 font-mono text-green/60 text-sm">
-                  {division.number}
-                </span>
-                <h3 className="col-span-10 md:col-span-4 font-display text-ink text-2xl md:text-3xl leading-tight tracking-tight">
-                  {division.title}
-                </h3>
-                <p className="col-span-12 md:col-span-6 text-text-secondary text-[15px] md:text-base leading-relaxed">
-                  {division.tagline}
-                </p>
-                <span className="col-span-12 md:col-span-1 flex md:justify-end">
-                  <span className="w-10 h-10 rounded-full bg-green/[0.06] flex items-center justify-center group-hover:bg-green transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]">
-                    <ArrowUpRight className="w-4 h-4 text-green group-hover:text-cream transition-all duration-500" />
-                  </span>
-                </span>
-              </div>
+              {/* corner detail */}
+              <span className="absolute top-0 right-0 w-14 h-14 -mr-7 -mt-7 rotate-45 bg-surface-2 transition-colors duration-300 group-hover:bg-orange/10" />
+              {/* navy top accent on hover */}
+              <span className="absolute top-0 left-0 h-[3px] w-0 bg-orange transition-all duration-500 group-hover:w-full" />
+
+              <MS name={ICONS[d.slug] ?? "category"} className="text-orange text-[44px] mb-6 block transition-transform duration-500 group-hover:scale-110" />
+              <h3 className="font-display text-navy text-xl font-bold tracking-tight">{d.title}</h3>
+              <p className="font-body text-text-secondary text-[15px] leading-relaxed mt-3 mb-6">{d.tagline}</p>
+              <span className="font-ui text-navy text-[12px] font-bold uppercase tracking-[0.08em] inline-flex items-center gap-2 group-hover:gap-3 group-hover:text-orange transition-all duration-300">
+                Learn More <MS name="arrow_forward" className="text-[18px]" />
+              </span>
             </Link>
           ))}
         </div>

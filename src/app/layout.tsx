@@ -1,26 +1,26 @@
 import type { Metadata, Viewport } from "next";
-import { Archivo, Fraunces, JetBrains_Mono } from "next/font/google";
+import { Inter, Source_Serif_4, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { SITE } from "@/content/site";
 
-// Body — Archivo: an industrial grotesque with a maritime/engineering feel.
-const archivo = Archivo({
-  variable: "--font-body",
+// Display & UI — Inter: clean, systematic, technical. Headlines and labels.
+const inter = Inter({
+  variable: "--font-display",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800", "900"],
   display: "swap",
 });
 
-// Display — Fraunces: a high-contrast modern serif with real character and
-// an expressive italic. Carries the editorial-premium register.
-const fraunces = Fraunces({
-  variable: "--font-display",
+// Body — Source Serif 4: institutional reading voice, heritage and authority.
+const sourceSerif = Source_Serif_4({
+  variable: "--font-body",
   subsets: ["latin"],
   weight: ["400", "500", "600"],
   style: ["normal", "italic"],
   display: "swap",
 });
 
+// Tags / small technical labels.
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-mono",
   subsets: ["latin"],
@@ -82,7 +82,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0A1929",
+  themeColor: "#00132E",
   width: "device-width",
   initialScale: 1,
 };
@@ -157,8 +157,12 @@ const jsonLd = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${archivo.variable} ${fraunces.variable} ${jetbrainsMono.variable} antialiased`}>
+    <html lang="en" className={`${inter.variable} ${sourceSerif.variable} ${jetbrainsMono.variable} antialiased`}>
       <head>
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block"
+        />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </head>
       <body className="min-h-full flex flex-col bg-cream text-ink" suppressHydrationWarning>

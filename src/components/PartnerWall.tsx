@@ -17,29 +17,29 @@ type Variant = "rich" | "compressed";
 
 export function PartnerWall({ variant = "compressed" }: { variant?: Variant }) {
   return (
-    <section aria-labelledby="partners-heading" className="relative bg-cream py-20 md:py-28 overflow-hidden">
-      <div className="mx-auto max-w-[1400px] px-6 md:px-12 mb-14 md:mb-20">
-        <div className="flex items-center gap-3 mb-6">
-          <span className="w-8 h-px bg-brass" />
-          <span className="font-mono text-green text-[11px] uppercase tracking-[0.28em]">
+    <section aria-labelledby="partners-heading" className="relative bg-surface py-20 md:py-28 overflow-hidden border-t border-steel-line/50">
+      <div className="mx-auto max-w-[1280px] px-4 md:px-12 mb-14 md:mb-16">
+        <div className="flex items-center gap-3 mb-5">
+          <span className="w-7 h-[2px] bg-orange" />
+          <span className="font-ui text-steel text-[11px] font-bold uppercase tracking-[0.18em]">
             Recognized &amp; Trusted
           </span>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-end">
-          <h2 id="partners-heading" className="md:col-span-7 font-display text-ink text-[clamp(2rem,3.6vw,3rem)] leading-[1.06] tracking-tight">
+          <h2 id="partners-heading" className="md:col-span-7 font-display text-navy text-[clamp(1.9rem,3.4vw,2.8rem)] font-extrabold leading-[1.08] tracking-[-0.02em]">
             {variant === "rich" ? (
               <>
                 The operators, regulators, and standards bodies{" "}
-                <em className="italic text-green">we answer to.</em>
+                <span className="text-orange">we answer to.</span>
               </>
             ) : (
               <>
-                The names <em className="italic text-green">our buyers already know.</em>
+                The names <span className="text-orange">our buyers already know.</span>
               </>
             )}
           </h2>
-          <p className="md:col-span-5 text-text-secondary text-[15px] leading-relaxed md:text-right md:pb-2">
-            <span className="font-mono text-ink/45 text-[12px] uppercase tracking-[0.2em]">
+          <p className="md:col-span-5 font-body text-text-secondary text-[15px] leading-relaxed md:text-right md:pb-2">
+            <span className="font-mono text-steel text-[12px] uppercase tracking-[0.18em]">
               {ALL_PARTNERS.length} partners
             </span>
             <span className="block mt-2">
@@ -53,8 +53,8 @@ export function PartnerWall({ variant = "compressed" }: { variant?: Variant }) {
       {variant === "rich" ? <RichTracks /> : <CompressedTrack />}
 
       {/* Edge fades */}
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-20 md:w-32 bg-gradient-to-r from-cream to-transparent z-10" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-20 md:w-32 bg-gradient-to-l from-cream to-transparent z-10" />
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-20 md:w-32 bg-gradient-to-r from-surface to-transparent z-10" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-20 md:w-32 bg-gradient-to-l from-surface to-transparent z-10" />
     </section>
   );
 }
@@ -94,9 +94,9 @@ function Track({
   return (
     <div>
       {label && (
-        <div className="mx-auto max-w-[1400px] px-6 md:px-12 mb-5">
-          <span className="inline-flex items-center gap-2.5 font-mono text-ink/45 text-[10px] uppercase tracking-[0.25em]">
-            <span className="w-1.5 h-1.5 rounded-full bg-green/50" />
+        <div className="mx-auto max-w-[1280px] px-4 md:px-12 mb-5">
+          <span className="inline-flex items-center gap-2.5 font-ui text-steel text-[10px] font-bold uppercase tracking-[0.2em]">
+            <span className="w-1.5 h-1.5 bg-orange" />
             {label}
           </span>
         </div>
@@ -109,7 +109,7 @@ function Track({
           {doubled.map((p, i) => (
             <div
               key={`${p.name}-${i}`}
-              className="shrink-0 group rounded-2xl bg-paper border border-ink/[0.06] shadow-[0_1px_0_rgba(20,39,43,0.02)] hover:border-green/30 hover:shadow-[0_8px_24px_rgba(20,39,43,0.06)] transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] flex items-center justify-center h-20 md:h-24 w-[180px] md:w-[220px] px-7"
+              className="shrink-0 group bg-white border border-steel-line/60 hover:border-navy transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] flex items-center justify-center h-20 md:h-24 w-[180px] md:w-[220px] px-7"
               title={p.full}
             >
               <Image

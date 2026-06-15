@@ -1,11 +1,36 @@
 // ═══════════════════════════════════════════
-// ICONS — small, stroke-style maritime set
+// ICONS — small stroke set + Material Symbols helper.
 // All marked aria-hidden by default. Wrap with semantic text for a11y.
 // ═══════════════════════════════════════════
 
 type IconProps = { className?: string };
 
 const base = "stroke-current fill-none";
+
+// Material Symbol — institutional iconography matching the Stitch system.
+// Usage: <MS name="anchor" className="text-5xl text-orange" filled />
+export function MS({
+  name,
+  className = "",
+  filled = false,
+  weight,
+}: {
+  name: string;
+  className?: string;
+  filled?: boolean;
+  weight?: number;
+}) {
+  const settings = `'FILL' ${filled ? 1 : 0}${weight ? `, 'wght' ${weight}` : ""}`;
+  return (
+    <span
+      className={`material-symbols-outlined ${className}`}
+      style={{ fontVariationSettings: settings }}
+      aria-hidden="true"
+    >
+      {name}
+    </span>
+  );
+}
 
 export function ArrowUpRight({ className = "w-4 h-4" }: IconProps) {
   return (

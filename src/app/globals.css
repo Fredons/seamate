@@ -1,76 +1,96 @@
 @import "tailwindcss";
 
 /* ═══════════════════════════════════════════
-   SEAMATE DESIGN SYSTEM — Deep Current v3
-   Editorial Maritime · Navy + Maritime Green + Signal Red on Cream
+   SEAMATE DESIGN SYSTEM — Institutional Excellence
+   Deep Maritime Navy + Safety Orange + Industrial Steel on cool white.
+   Inter (display/labels) · Source Serif 4 (body) · JetBrains Mono (tags).
+   Green is reserved for sustainability / HSE indicators only.
    ═══════════════════════════════════════════ */
 
 :root {
-  /* ── Editorial Maritime · warm-bone + deep-teal + maritime-green + brass ──
-     Neutrals tinted warm toward the brand; no pure #000 / #fff. */
+  /* Deep maritime navy — primary, dark sections, footer */
+  --navy: #00132E;
+  --navy-mid: #1B3A66;
+  --navy-deep: #000B1A;
+  --navy-soft: #3B5680;
+  --ink: #15171C;
 
-  /* Deep teal-navy — dark sections, footer, ink */
-  --navy: #0E2429;
-  --navy-light: #143138;
-  --navy-mid: #1C414B;
-  --ink: #14272B;
+  /* Cool institutional surfaces (de-tinted, not lavender) */
+  --surface: #F8F9FA;
+  --surface-2: #F1F2F4;
+  --surface-3: #E8EAED;
+  --white: #FFFFFF;
 
-  /* Warm bone light bases */
-  --cream: #F7F4EC;
-  --cream-dark: #EEE9DC;
-  --paper: #FCFAF3;
+  /* Safety orange — the signal accent (CTAs, highlights, nautical signal) */
+  --orange: #F7511C;
+  --orange-dark: #D8430F;
+  --orange-soft: #FFE6DC;
 
-  /* Maritime green — primary accent */
+  /* Industrial steel — secondary text, icons, hairlines */
+  --steel: #566061;
+  --steel-light: #74777F;
+  --steel-line: #CBCDD3;
+
+  /* Maritime green — sustainability / HSE only */
   --green: #1F7A4E;
-  --green-light: #2A9462;
-  --green-muted: #185C3B;
-  --green-pale: #E7F0E8;
+  --green-light: #2E9A66;
+  --green-muted: #18603D;
+  --green-pale: #E7F0EA;
 
-  /* Brass — hairline / detail accent */
-  --brass: #B58A4C;
-  --brass-light: #C9A86A;
+  --red: #BA1A1A;
 
-  /* Signal red — sparing secondary (brand mark) */
-  --red: #B5302A;
-  --red-light: #D44A44;
-  --red-muted: #9A2822;
+  /* Text */
+  --text-primary: #15171C;
+  --text-secondary: #43474E;
+  --text-on-dark: #EEF1F5;
+  --text-muted: #74777F;
+  --border-subtle: rgba(21, 23, 28, 0.10);
+  --border-on-dark: rgba(238, 241, 245, 0.14);
 
-  /* Warm slate neutrals */
-  --steel: #5C6B6E;
-  --steel-light: #8A9699;
-
-  --text-primary: #14272B;
-  --text-secondary: #46585C;
-  --text-on-dark: #F7F4EC;
-  --text-muted: #8A9699;
-  --border-subtle: rgba(20, 39, 43, 0.09);
-  --border-on-dark: rgba(247, 244, 236, 0.14);
+  /* ── Legacy aliases so existing components keep resolving ── */
+  --cream: var(--surface);
+  --cream-dark: var(--surface-3);
+  --paper: var(--white);
+  --navy-light: var(--navy-mid);
+  --brass: var(--orange);
+  --brass-light: var(--orange);
 
   --ease-out: cubic-bezier(0.32, 0.72, 0, 1);
 }
 
 @theme inline {
+  /* New Institutional Excellence palette */
   --color-navy: var(--navy);
-  --color-navy-light: var(--navy-light);
   --color-navy-mid: var(--navy-mid);
+  --color-navy-deep: var(--navy-deep);
+  --color-navy-soft: var(--navy-soft);
   --color-ink: var(--ink);
-  --color-cream: var(--cream);
-  --color-cream-dark: var(--cream-dark);
-  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-orange: var(--orange);
+  --color-orange-dark: var(--orange-dark);
+  --color-orange-soft: var(--orange-soft);
+  --color-steel: var(--steel);
+  --color-steel-light: var(--steel-light);
+  --color-steel-line: var(--steel-line);
   --color-green: var(--green);
   --color-green-light: var(--green-light);
   --color-green-muted: var(--green-muted);
   --color-green-pale: var(--green-pale);
-  --color-brass: var(--brass);
-  --color-brass-light: var(--brass-light);
   --color-red: var(--red);
-  --color-red-light: var(--red-light);
-  --color-red-muted: var(--red-muted);
-  --color-steel: var(--steel);
-  --color-steel-light: var(--steel-light);
+  --color-on-dark: var(--text-on-dark);
   --color-text-secondary: var(--text-secondary);
   --color-text-muted: var(--text-muted);
   --color-border-subtle: var(--border-subtle);
+
+  /* Legacy aliases (cream/paper/brass) mapped to the new system */
+  --color-cream: var(--surface);
+  --color-cream-dark: var(--surface-3);
+  --color-paper: var(--white);
+  --color-navy-light: var(--navy-mid);
+  --color-brass: var(--orange);
+  --color-brass-light: var(--orange);
 
   --font-body: var(--font-body);
   --font-display: var(--font-display);
@@ -81,20 +101,29 @@
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: var(--font-body), system-ui, sans-serif;
-  background: var(--cream);
+  font-family: var(--font-body), Georgia, serif; /* Source Serif 4 — body */
+  background: var(--surface);
   color: var(--text-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {
-  background: var(--green);
-  color: var(--cream);
+  background: var(--orange);
+  color: #fff;
 }
 
-.font-display { font-family: var(--font-display), Georgia, serif; }
+/* Inter — display & UI. Bold, tight tracking for the institutional headline feel. */
+.font-display { font-family: var(--font-display), system-ui, sans-serif; font-weight: 700; letter-spacing: -0.02em; }
+.font-ui { font-family: var(--font-display), system-ui, sans-serif; }
 .font-mono { font-family: var(--font-mono), monospace; }
+
+/* Material Symbols base */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  line-height: 1;
+  display: inline-block;
+}
 
 /* ═══════ Subtle grain on the whole page ═══════ */
 .grain { position: relative; }

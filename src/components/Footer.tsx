@@ -1,18 +1,14 @@
 // ═══════════════════════════════════════════
-// Footer — editorial paper register, matching the rest of the site.
-// Three bands:
-//   1. Reach Seamate — big tagline + two mailto cards
-//   2. Sitemap — 4 columns with deep anchored links
-//   3. Legal ribbon — thin row at the very bottom
-// Replaces the previous navy block which didn't match the site register.
+// Footer — deep navy institutional footer (Stitch system).
+// 4 columns: brand + social, Divisions, Company, Contact. Legal bottom bar.
 // ═══════════════════════════════════════════
 
 import Image from "next/image";
 import Link from "next/link";
 import { SITE, CONTACT } from "@/content/site";
-import { ArrowUpRight } from "./icons";
+import { MS } from "./icons";
 
-const FOOTER_COLUMNS = [
+const COLUMNS = [
   {
     label: "Divisions",
     links: [
@@ -28,7 +24,6 @@ const FOOTER_COLUMNS = [
     label: "Company",
     links: [
       { label: "About", href: "/about" },
-      { label: "Vision & Philosophy", href: "/about#vision" },
       { label: "Sustainability", href: "/about#sustainability" },
       { label: "Credentials", href: "/about#credentials" },
       { label: "Awards", href: "/about#awards" },
@@ -46,134 +41,83 @@ const FOOTER_COLUMNS = [
   },
 ];
 
-const MAILTO_CARDS = [
-  {
-    eyebrow: "General inquiries",
-    email: CONTACT.emails.general,
-    scope: "Inspection · HSSE · Logistics · Partnerships",
-  },
-  {
-    eyebrow: "Vessel operations",
-    email: CONTACT.emails.vessel,
-    scope: "Ship management · Vendor registration",
-  },
-];
-
 export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-paper">
-      {/* ─── Band 1 — Reach Seamate ─── */}
-      <section className="border-t border-ink/[0.08]">
-        <div className="mx-auto max-w-[1400px] px-6 md:px-12 py-20 md:py-24">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 items-start">
-            <div className="md:col-span-5">
-              <span className="font-mono text-green text-[11px] uppercase tracking-[0.25em] block mb-6">
-                Reach Seamate
-              </span>
-              <h2 className="font-display text-ink text-[clamp(2rem,4.5vw,3.6rem)] leading-[1.02] tracking-tight">
-                Built in Lagos.{" "}
-                <em className="text-green-muted">Trusted across EMEA.</em>
-              </h2>
-              <p className="text-text-secondary text-base leading-relaxed max-w-[40ch] mt-6">
-                Lagos office, EMEA coverage. {CONTACT.responseTime}
-              </p>
-
-              <div className="mt-8 space-y-2.5">
-                {CONTACT.phones.map((phone) => (
-                  <p key={phone.e164} className="font-mono text-ink/70 text-[14px]">
-                    <span className="text-ink/35 text-[11px] uppercase tracking-[0.2em] mr-3">{phone.label}</span>
-                    <a href={`tel:${phone.e164}`} className="hover:text-green transition-colors">
-                      {phone.number}
-                    </a>
-                  </p>
-                ))}
-              </div>
-            </div>
-
-            <div className="md:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-5">
-              {MAILTO_CARDS.map(({ eyebrow, email, scope }) => (
-                <a
-                  key={email}
-                  href={`mailto:${email}`}
-                  className="group block rounded-2xl bg-white border border-ink/[0.08] p-6 md:p-7 hover:border-green/40 hover:shadow-[0_8px_30px_rgba(29,122,75,0.08)] transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover-lift"
-                >
-                  <div className="flex items-start justify-between gap-3">
-                    <span className="text-ink/45 text-[11px] uppercase tracking-[0.2em] font-medium">{eyebrow}</span>
-                    <span className="w-7 h-7 rounded-full bg-green/[0.06] flex items-center justify-center group-hover:bg-green transition-all duration-500">
-                      <ArrowUpRight className="w-3.5 h-3.5 text-green group-hover:text-cream transition-colors duration-500" />
-                    </span>
-                  </div>
-                  <p className="font-mono text-ink text-base md:text-lg mt-4 break-all group-hover:text-green transition-colors duration-500">
-                    {email}
-                  </p>
-                  <p className="text-text-secondary text-[13px] leading-relaxed mt-3">{scope}</p>
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── Band 2 — Sitemap ─── */}
-      <section className="border-t border-ink/[0.08]">
-        <div className="mx-auto max-w-[1400px] px-6 md:px-12 py-14 md:py-16">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-y-10 gap-x-8">
-            <div className="col-span-2 md:col-span-1">
-              <Link href="/" aria-label="Seamate — home" className="inline-block">
-                <Image
-                  src="/seamate-logo.png"
-                  alt=""
-                  width={150}
-                  height={42}
-                  className="h-10 w-auto"
-                />
-              </Link>
-              <p className="text-text-secondary text-[13px] leading-relaxed mt-5 max-w-[26ch]">
-                Promoting health, safety, and the environment from Lagos since 9 October 2007.
-              </p>
-              <p className="font-mono text-ink/40 text-[11px] mt-4">
-                {SITE.rcNumber} · D&amp;B {SITE.dunsBradstreet}
-              </p>
-            </div>
-
-            {FOOTER_COLUMNS.map((col) => (
-              <div key={col.label}>
-                <h4 className="text-ink/45 text-[11px] uppercase tracking-[0.2em] font-medium mb-5">
-                  {col.label}
-                </h4>
-                <ul className="space-y-3">
-                  {col.links.map((l) => (
-                    <li key={l.href}>
-                      <Link
-                        href={l.href}
-                        className="text-ink/75 text-[14px] hover:text-green transition-colors duration-500"
-                      >
-                        {l.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+    <footer className="bg-navy text-on-dark">
+      <div className="mx-auto max-w-[1280px] px-4 md:px-12 grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8 py-20 md:py-24">
+        <div className="md:col-span-4">
+          <Image src="/seamate-logo.png" alt="" width={150} height={40} className="h-11 w-auto brightness-0 invert" />
+          <p className="font-body text-on-dark/60 text-[15px] leading-relaxed max-w-[34ch] mt-6">
+            World-class maritime, energy, and logistics solutions across the
+            African continent since 9 October 2007.
+          </p>
+          <p className="font-mono text-on-dark/40 text-[11px] mt-5">
+            {SITE.rcNumber} · D&amp;B {SITE.dunsBradstreet}
+          </p>
+          <div className="flex gap-3 mt-7">
+            {[
+              { icon: "public", href: SITE.url },
+              { icon: "mail", href: `mailto:${CONTACT.emails.general}` },
+              { icon: "call", href: `tel:${CONTACT.phones[0].e164}` },
+            ].map((s) => (
+              <a
+                key={s.icon}
+                href={s.href}
+                className="w-10 h-10 rounded-md border border-on-dark/20 flex items-center justify-center text-on-dark/70 hover:bg-on-dark/10 hover:text-white transition-all duration-300"
+              >
+                <MS name={s.icon} className="text-[18px]" />
+              </a>
             ))}
           </div>
         </div>
-      </section>
 
-      {/* ─── Band 3 — Legal ribbon ─── */}
-      <section className="bg-ink/[0.03] border-t border-ink/[0.08]">
-        <div className="mx-auto max-w-[1400px] px-6 md:px-12 py-6">
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
-            <p className="text-ink/45 text-[12px] font-mono">
-              &copy; 2007&ndash;{year} {SITE.legalName}. All rights reserved.
-            </p>
-            <p className="text-ink/35 text-[12px] font-mono">
-              ISO 9001:2015 · NIMASA · DPR · RINA · eCMID · D&amp;B Verified
-            </p>
+        {COLUMNS.map((col) => (
+          <div key={col.label} className="md:col-span-2">
+            <h4 className="font-ui text-on-dark text-[11px] font-bold uppercase tracking-[0.18em] mb-6">
+              {col.label}
+            </h4>
+            <ul className="space-y-3.5">
+              {col.links.map((l) => (
+                <li key={l.href}>
+                  <Link
+                    href={l.href}
+                    className="font-body text-on-dark/60 text-[14px] hover:text-orange transition-colors duration-300"
+                  >
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
+        ))}
+
+        <div className="md:col-span-2">
+          <h4 className="font-ui text-on-dark text-[11px] font-bold uppercase tracking-[0.18em] mb-6">Contact</h4>
+          <p className="font-body text-on-dark/45 text-[13px]">Corporate HQ</p>
+          <p className="font-body text-white text-[14px] mb-4">{SITE.headquarters}</p>
+          {CONTACT.phones.map((p) => (
+            <a key={p.e164} href={`tel:${p.e164}`} className="block font-mono text-on-dark/60 text-[13px] hover:text-white transition-colors">
+              {p.number}
+            </a>
+          ))}
+          <a href={`mailto:${CONTACT.emails.general}`} className="block font-mono text-on-dark/60 text-[13px] mt-2 hover:text-white transition-colors">
+            {CONTACT.emails.general}
+          </a>
         </div>
-      </section>
+      </div>
+
+      <div className="border-t border-on-dark/10">
+        <div className="mx-auto max-w-[1280px] px-4 md:px-12 py-7 flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
+          <p className="font-mono text-on-dark/45 text-[11px]">
+            &copy; 2007&ndash;{year} {SITE.legalName}. ISO 9001:2015 Certified.
+          </p>
+          <p className="font-mono text-on-dark/40 text-[11px] uppercase tracking-[0.12em]">
+            NIMASA · DPR · RINA · eCMID · D&amp;B Verified
+          </p>
+        </div>
+      </div>
     </footer>
   );
 }
